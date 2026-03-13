@@ -12,14 +12,15 @@ async function authArtist(req, res, next) {
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
         if (decoded.role !== 'artist') {
             return res.status(403).json({
-                message: "Forbidden"
+                message: "You dont have access"
             })
         }
+        next();
     } catch (error) {
         console.log(error);
         return res.status(401).json({
-            message: "Invalid token"
+            message: "Unauthorized"
         })
     }
-    next();
+    
 }
