@@ -30,7 +30,7 @@ async function createMusic(req, res) {
               },
             })
         
-    }
+  }
 
 async function createALbum(req, res) {
   
@@ -62,6 +62,6 @@ async function getAllMusics(req, res) {
     musics:musics,
     
   })
-}
+   }
 
 module.exports = { createMusic, createALbum, getAllMusics }
