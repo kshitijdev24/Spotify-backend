@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const musicModel = require('../models/music.model');
 const albumModel = require('../models/album.model');
 const { uploadFile } = require('../services/storage.service');
@@ -30,7 +29,7 @@ async function createMusic(req, res) {
               },
             })
         
-  }
+   }
 
 async function createALbum(req, res) {
   
@@ -63,5 +62,5 @@ async function getAllMusics(req, res) {
     
   })
    }
-
+   
 module.exports = { createMusic, createALbum, getAllMusics }
