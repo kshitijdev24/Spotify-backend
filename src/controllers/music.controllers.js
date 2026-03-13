@@ -31,17 +31,13 @@ async function createMusic(req, res) {
             })
         
     }
-  
-    
-
-
 
 async function createALbum(req, res) {
   
     
-    const { title, musicIds } = req.body;
+    const { title, musics } = req.body;
 
-    const album = await musicModel.create({
+    const album = await albumModel.create({
       title,
       musics: musics,
       artist: req.user.id,
@@ -58,5 +54,14 @@ async function createALbum(req, res) {
     })
    }
 
+async function getAllMusics(req, res) {
+  const musics = await musicModel.find()
 
-module.exports = { createMusic, createALbum }
+  res.status(200).json({
+    message: "Musics retrieved successfully",
+    musics:musics,
+    
+  })
+}
+
+module.exports = { createMusic, createALbum, getAllMusics }
