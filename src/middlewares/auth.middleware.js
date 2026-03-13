@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 async function authArtist(req, res, next) {
@@ -8,7 +9,7 @@ async function authArtist(req, res, next) {
         })
     }
     try {
-        const decoded = jwt.verify(token.process.env.JWT_SECRET);
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
         if (decoded.role !== 'artist') {
             return res.status(403).json({
                 message: "Forbidden"
