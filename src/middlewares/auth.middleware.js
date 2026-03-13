@@ -15,6 +15,7 @@ async function authArtist(req, res, next) {
         message: "You dont have access",
       });
     }
+    req.user = decoded;
     next();
   } catch (error) {
     console.log(error);
